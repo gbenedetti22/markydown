@@ -12,9 +12,11 @@ use Str;
 #[Layout('layouts.app')]
 class ScientificDocumentEditor extends Component
 {
-    public array $pages = [];
+    public array $pages = [0 => ['markdown_content' => '# Ciao mondo']];
     public float $zoom = 1.0;
     public array $paperSize = PaperSize::A4;
+
+    public $index = 0;
 
     protected $rules = [
         'pages.*.markdown_content' => 'nullable|string|not_regex:/<[^>]*script/i|not_regex:/<\/?script/i|not_regex:/javascript:/i',
